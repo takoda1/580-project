@@ -1,0 +1,48 @@
+@font-face {
+  font-family: arcade;
+  src: url("fonts/ARCADECLASSIC.TTF");
+}
+
+html { 
+    background: url("img/home.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-family: arcade;
+    font-size: 40px
+}
+
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: arcade;
+    font-size: 80px
+}
+
+#enter {
+    position: absolute; 
+    bottom: 10px;
+    padding-left: 30%;
+}
+
+
+button {
+    text-align: center;
+    color: white;
+    font-family: arcade;
+    font-size: 40px;
+    background-color: black;
+}
+
+trivia{
+    position: absolute; 
+    left: 20%;
+    top= 20%;
+}
