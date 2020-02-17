@@ -4,6 +4,9 @@
 
 * Web site: TBD
 * https://trello.com/b/ky8qZLNp/comp-580-project
+* https://hackernoon.com/how-to-build-a-multiplayer-browser-game-4a793818c29b
+* http://buildnewgames.com/real-time-multiplayer/
+
 
 # Documentation
 
