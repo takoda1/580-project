@@ -1,0 +1,29 @@
+/*
+@font-face {
+  font-family: arcade;
+  src: url("fonts/ARCADECLASSIC.TTF");
+}
+*/
+
+
+html { 
+    background: url("img/home.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h2 {
+    text-align: center;
+    color: red;
+    font-size: 40px
+}
+
+
+h1 {
+    text-align: center;
+    color: red;
+    font-size: 80px
+}
+
