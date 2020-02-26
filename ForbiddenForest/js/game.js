@@ -87,9 +87,14 @@ function BeginInstructions() {
 function playGame() {
     var values = getEquation();
     var eq = values[0];
+    console.log(generateAnswers(values[0]));
+    console.log(generateAnswers(values[1]));
     var an = generateAnswers(values[1]);
     document.getElementById("equation").innerHTML = eq + " = ";
-    document.getElementById("answers").innerHTML = an.toString();
+    document.getElementById("answer_left").innerHTML = an[0];
+    document.getElementById("answer_up").innerHTML = an[1];
+    document.getElementById("answer_right").innerHTML = an[2];
+    document.getElementById("answer_down").innerHTML = an[3];
     return [values[1],an];
 }
 
@@ -104,11 +109,10 @@ function message(a) {
 }
 
 $(window).keypress(function(e){
-    e.preventDefault();
     //spacebar pressed
     if (e.keyCode == 32) { 
         //BeginInstructions();
-        if( played == false) {
+        if(played == false) {
             document.getElementById("instructions").innerHTML = "";
             result = playGame();
             played = true; 
@@ -125,37 +129,59 @@ $(window).keypress(function(e){
                     location.href = "end_game.html";
                 }
             }
-            document.getElementById("equation").innerHTML = "";
-            document.getElementById("answers").innerHTML = "";
-
+            reset_answers();
             played = false;
             answered = false;
 
-        }else {
-            console.log("Error: stuck");
         }
     } else if (e.keyCode == 17) { 
+        //Read out: "Are you sure you want to quit the game? Press again to exit."
         location.href = "../choose_game.html";
     }
 });
 
+
+function underline_answer(choice) {
+    document.getElementById("answer_up").style.textDecoration = "none";
+    document.getElementById("answer_down").style.textDecoration = "none";
+    document.getElementById("answer_left").style.textDecoration = "none";
+    document.getElementById("answer_right").style.textDecoration = "none";
+    document.getElementById(choice).style.textDecoration = "underline overline";
+}
+
+function reset_answers() {
+    document.getElementById("equation").innerHTML = "";
+    document.getElementById("answer_left").innerHTML = "";
+    document.getElementById("answer_up").innerHTML = "";
+    document.getElementById("answer_right").innerHTML = "";
+    document.getElementById("answer_down").innerHTML = "";
+    document.getElementById("answer_up").style.textDecoration = "none";
+    document.getElementById("answer_down").style.textDecoration = "none";
+    document.getElementById("answer_left").style.textDecoration = "none";
+    document.getElementById("answer_right").style.textDecoration = "none";
+}
+
 $(window).keyup(function(e){
     if (e.keyCode == 17) { 
         location.href = "../choose_game.html";
-    } else if (answered == false && played == true) {
+    } else if (played == true) {
         if (e.keyCode == 38) {
+            underline_answer("answer_up");
             up_arrow = true;
             answered = true;
             index = 1;
         }else if (e.keyCode == 39) {
+            underline_answer("answer_right");
             right_arrow = true;
             answered = true;
             index = 2;
         } else if (e.keyCode == 40) {
+            underline_answer("answer_down");
             down_arrow = true;
             answered = true;
             index = 3;
         } else if (e.keyCode == 37) {
+            underline_answer("answer_left");
             left_arrow = true;
             answered = true;
             index = 0;
