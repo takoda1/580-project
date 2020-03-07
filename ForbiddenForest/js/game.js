@@ -10,19 +10,22 @@ var correct_answers = 0;
 var instructions = false;
 var result = [0, [0,0,0,0]];
 var msg = new SpeechSynthesisUtterance("Hello, and welcome to the \
-    Forbidden Forrest. You are stuck in an enchanted \
-    forrest and are being chased by a monster. The monster is currently 10 \
-    feet away.As you run through the enchanted \
+    Forbidden Forrest. You may skip the instructions at anytime by pressing the space bar. You are stuck in an enchanted \
+    forrest and are being chased by a monster. The monster is currently 8 \
+    feet away. As you run through the enchanted \
     forest, you will run into various magical obstacles. To dodge them, \
     you must correctly answer a math problem. There will be four possible answers, \
     each corresponding to a different arrow key that will allow you to move \
-    to dodge the obstacle in your path. Everytime you answer \
-    a question incorrectly the monster will be one foot closer to you. \
+    to dodge the obstacle in your path. The possible answers will be read out in the order\
+    left arrow, up arrow, right arrow, and down arrow. If you need to hear an equation\
+    again, press the space bar before hitting any arrow keys. Everytime you answer \
+    a question incorrectly the monster will be two feet closer to you. \
     If you correctly answer 10 questions you escape the forrest unharmed.\
     At any time, you may press the control key, located at \
     the bottom left of your keyboard, to exit the game and return to\
     the main menu of games. When you are ready, press the space\
     bar to begin.");
+game_over = false;
 
 
 function getEquation() {
@@ -57,19 +60,19 @@ function generateAnswers(answer) {
     var b = 0;
     var c = 0;
     if (answer < 20) {
-        while(a == b || c==b || a==c) {
+        while(a == b || c==b || a==c || a==answer || b==answer || c==answer) {
             a = Math.floor(Math.random()*30+1);
             b = Math.floor(Math.random()*30+1);
             c = Math.floor(Math.random()*30+1);
         }
     }else if (answer < 50) {
-        while(a == b || c==b || a==c) {
+        while(a == b || c==b || a==c || a==answer || b==answer || c==answer) {
             a = answer-Math.floor((Math.random()*10+1));
             b = answer-Math.floor((Math.random()*10+1));
             c = answer-Math.floor((Math.random()*10+1));
         }
     }else {
-        while(a == b || c==b || a==c) {
+        while(a == b || c==b || a==c || a==answer || b==answer || c==answer) {
             a = answer-Math.floor((Math.random()*20+1));
             b = answer-Math.floor((Math.random()*20+1));
             c = answer-Math.floor((Math.random()*20+1));
@@ -94,7 +97,7 @@ function shuffle(array) {
     return array;
   }
 
-function BeginInstructions() {
+  function BeginInstructions() {
     msg.pitch = 0;
     window.speechSynthesis.speak(msg);
     instructions = true;
@@ -110,21 +113,21 @@ function playGame() {
     msg.pitch = 0;
     window.speechSynthesis.speak(msg);
     document.getElementById("answer_left").innerHTML = an[0];
-    // var msg = new SpeechSynthesisUtterance(an[0]);
-    // msg.pitch = 0;
-    // window.speechSynthesis.speak(msg);
+    var msg = new SpeechSynthesisUtterance(an[0]);
+    msg.pitch = 0;
+    window.speechSynthesis.speak(msg);
     document.getElementById("answer_up").innerHTML = an[1];
-    // var msg = new SpeechSynthesisUtterance(an[1]);
-    // msg.pitch = 0;
-    // window.speechSynthesis.speak(msg);
+    var msg = new SpeechSynthesisUtterance(an[1]);
+    msg.pitch = 0;
+    window.speechSynthesis.speak(msg);
     document.getElementById("answer_right").innerHTML = an[2];
-    // var msg = new SpeechSynthesisUtterance(an[2]);
-    // msg.pitch = 0;
-    // window.speechSynthesis.speak(msg);
+    var msg = new SpeechSynthesisUtterance(an[2]);
+    msg.pitch = 0;
+    window.speechSynthesis.speak(msg);
     document.getElementById("answer_down").innerHTML = an[3];
-    // var msg = new SpeechSynthesisUtterance(" or" + an[3]);
-    // msg.pitch = 0;
-    // window.speechSynthesis.speak(msg);
+    var msg = new SpeechSynthesisUtterance(" or" + an[3]);
+    msg.pitch = 0;
+    window.speechSynthesis.speak(msg);
     return [values[1],an, eq];
 }
 
@@ -140,40 +143,74 @@ function message(a) {
         window.speechSynthesis.speak(msg);
         document.getElementById("instructions").innerHTML = "Correct Answer <br> You are one step closer to getting out of the forrest <br> Answer " + (10-correct_answers).toString() + " more questions correctly to leave the forrest";
     }else {
-        distance = distance -1;
+        distance = distance -2;
         var msg = new SpeechSynthesisUtterance("Inncorrect. The correct answer is " + result[0] + " The monster is now " + distance + " feet away");
         msg.pitch = 0;
         window.speechSynthesis.speak(msg);
         document.getElementById("instructions").innerHTML = "Incorrect Answer! <br><br> Correct answer is " + result[0] + "<br> The monster is now " + distance + " feet away";
-    }
+    }setTimeout(restart_questions(), 10000);
 }
 
+
+function end_game() {
+    document.getElementById("instructions").innerHTML = "Game Over. You did not\
+    escape the forest.";
+    game_over = true;
+    var msg = new SpeechSynthesisUtterance("Game Over. You did not\
+     escape the forest. To play again, press the spacebar. To\
+     return to the game choice page, press the control key in the\
+     bottom left corner");
+    msg.pitch = 0;
+    window.speechSynthesis.speak(msg);
+}
+
+function win_game() {
+    document.getElementById("instructions").innerHTML = "Congratulations. You escpaed\
+    the forest safely";
+    game_over = true;
+    var msg = new SpeechSynthesisUtterance("Congratulations. You escaped\
+    the forest safely. To play again, press the spacebar. To\
+     return to the game choice page, press the control key in the\
+     bottom left corner");
+    msg.pitch = 0;
+    window.speechSynthesis.speak(msg);
+}
+
+function restart_questions() {
+    answered = false;
+    document.getElementById("instructions").innerHTML = "";
+    result = playGame();
+    played = true; 
+}
+
+
+
 $(window).keypress(function(e){
-    if (e.keyCode == 32) { //spacebar
+    if(instructions == false) {
+        BeginInstructions();
+    } else if (game_over == true){
+        location.href = "play-game.html"
+    }
+    else if (e.keyCode == 32 && game_over==false) { //spacebar
         window.speechSynthesis.cancel();
-        if(instructions == false) {
-            BeginInstructions();
-        }
-        else if(played == false) {
-            document.getElementById("instructions").innerHTML = "";
-            result = playGame();
-            played = true; 
+        if(played == false) {
+            restart_questions();
         }
         else if (played == true && answered == true) {
+            reset_answers()
             if(result[1][index]==result[0]){
-                message(0);
-                if(correct_answers == 10) {
-                    //you win the game
+                if(correct_answers+1 == 10) {
+                    win_game();
+                } else {
+                    message(0);
                 }
             } else {
-                message(1);
-                if(distance == 0){
-                    location.href = "end_game.html";
+                if(distance-2 == 0){
+                    end_game();
+                } else {
+                    message(1);
                 }
             }
-            reset_answers();
-            played = false;
-            answered = false;
 
         } else {
             var msg = new SpeechSynthesisUtterance(result[2]);
@@ -212,6 +249,7 @@ $(window).keyup(function(e){
         location.href = "../choose_game.html";
     } else if (played == true) {
         if (e.keyCode == 38) {
+            window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance(result[1][1]);
             msg.pitch = 0;
             window.speechSynthesis.speak(msg);
@@ -219,7 +257,9 @@ $(window).keyup(function(e){
             up_arrow = true;
             answered = true;
             index = 1;
+            document.getElementById('jump1').play();
         }else if (e.keyCode == 39) {
+            window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance(result[1][2]);
             msg.pitch = 0;
             window.speechSynthesis.speak(msg);
@@ -227,7 +267,9 @@ $(window).keyup(function(e){
             right_arrow = true;
             answered = true;
             index = 2;
+            document.getElementById('jump2').play();
         } else if (e.keyCode == 40) {
+            window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance(result[1][3]);
             msg.pitch = 0;
             window.speechSynthesis.speak(msg);
@@ -235,7 +277,9 @@ $(window).keyup(function(e){
             down_arrow = true;
             answered = true;
             index = 3;
+            document.getElementById('jump3').play();
         } else if (e.keyCode == 37) {
+            window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance(result[1][0]);
             msg.pitch = 0;
             window.speechSynthesis.speak(msg);
@@ -243,8 +287,9 @@ $(window).keyup(function(e){
             left_arrow = true;
             answered = true;
             index = 0;
+            document.getElementById('jump4').play();
+
         } 
     }
     
 });
-
