@@ -1,10 +1,10 @@
 @font-face {
-  font-family: arcade;
-  src: url("fonts/ARCADECLASSIC.TTF");
+    font-family: arcade;
+    src: url("../fonts/ARCADECLASSIC.TTF");
 }
 
-html { 
-    background: url("img/home.jpg") no-repeat center center fixed; 
+html {
+    background: url("../images/homepage_home.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -27,7 +27,7 @@ h1 {
 }
 
 #enter {
-    position: absolute; 
+    position: absolute;
     bottom: 10px;
     padding-left: 30%;
 }
@@ -41,8 +41,8 @@ button {
     background-color: black;
 }
 
-trivia{
-    position: absolute; 
+trivia {
+    position: absolute;
     left: 20%;
-    top= 20%;
+    top = 20%;
 }

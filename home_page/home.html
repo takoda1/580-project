@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
+
 <html>
     
     <head>
         <title> Arcadia </title>
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" type="text/css" href="css/home.css" />
     </head>
 
     
@@ -13,24 +14,23 @@
         <h1> The arcade </h1>
         <div id="enter">
             
-            <button id="myButton"> Click any button to begin</button>
+            <button id="myButton" onclick="window.location.href = '/chooseGame';"> Click any button to begin</button>
         </div>
     </body>
 
     <audio controls= "controls" autoplay="autoplay" loop="loop">
-      <source src="audio/interstellar.ogg" type="audio/ogg">
+      <source href="/public/sounds/interstellar.ogg" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
-
-
-<script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "choose_game.html";
-    };
-</script>
 
 
 
 
 
 </html>
+
+<!--<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "choose_game.html";
+    };
+</script>-->
