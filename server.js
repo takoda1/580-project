@@ -18,6 +18,10 @@ app.get('/chooseGame', (req, res) => {
     res.sendFile(path.join(__dirname, 'home_page/choose_game.html'))
 })
 
+app.get('/forbiddenForest', (req, res) => {
+    res.sendFile(path.join(__dirname, 'ForbiddenForest/play-game.html'))
+})
+
 
 server.listen(process.env.PORT, () => {
     console.log("Starting server on port " + process.env.PORT)
