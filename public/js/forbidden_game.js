@@ -246,6 +246,7 @@ function reset_answers() {
 
 $(window).keyup(function(e){
     if (e.keyCode == 17) { 
+        window.speechSynthesis.cancel();
         location.href = '/chooseGame';
     } else if (played == true) {
         if (e.keyCode == 38) {

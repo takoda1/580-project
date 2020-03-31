@@ -26,6 +26,10 @@ h1 {
     font-size: 80px
 }
 
+p{
+    text-align: center;
+}
+
 #enter {
     position: absolute;
     bottom: 10px;
