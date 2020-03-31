@@ -189,7 +189,7 @@ $(window).keypress(function(e){
     if(instructions == false) {
         BeginInstructions();
     } else if (game_over == true){
-        location.href = "play-game.html"
+        location.href = '/forbiddenForest';
     }
     else if (e.keyCode == 32 && game_over==false) { //spacebar
         window.speechSynthesis.cancel();
@@ -219,7 +219,7 @@ $(window).keypress(function(e){
         }
     } else if (e.keyCode == 17) {  //exit button
         //Read out: "Are you sure you want to quit the game? Press again to exit."
-        location.href = "../choose_game.html";
+        location.href = '/chooseGame';
     }
 });
 
@@ -246,7 +246,7 @@ function reset_answers() {
 
 $(window).keyup(function(e){
     if (e.keyCode == 17) { 
-        location.href = "../choose_game.html";
+        location.href = '/chooseGame';
     } else if (played == true) {
         if (e.keyCode == 38) {
             window.speechSynthesis.cancel();
