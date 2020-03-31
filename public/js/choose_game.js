@@ -1,4 +1,4 @@
-let games = ['Clap It', 'The Forbidden Forest', "Takoda's Game"]
+let games = ['Clap It', 'The Forbidden Forest', "King of the Maze"]
 var index = 0;
 var selected = false;
 var first = true
@@ -13,11 +13,13 @@ $(window).keyup(function(e){
         if (selected == true && e.keyCode== 32){
             if (index%3==0){
                 // jump to clap it
+                location.href = '/clapit';
             }else if (index%3==1) {
                 //jump to Forbidden Forest
                 location.href = '/forbiddenForest';
             }else {
                 //jump to takoda's game
+                location.href = "/multiplayer";
             }
         } else {
             if (e.keyCode == 39) { 
