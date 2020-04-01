@@ -1,0 +1,7 @@
+body {
+    background-image: url(https://phandroid.s3.amazonaws.com/wp-content/uploads/2015/02/galaxy-wallpaper-1.jpg);
+}
+
+canvas {
+    position: absolute;
+}

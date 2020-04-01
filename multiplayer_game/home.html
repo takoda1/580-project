@@ -1,13 +1,7 @@
 <html>
     <head>
         <title>Maze game whoever gets to the end first wins</title>
-        <style>
-            canvas {
-                width: 800px;
-                height: 00px;
-                border: 5px solid black;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/maze.css" />
         <script src="/socket.io/socket.io.js"></script>
         <script>
            let socket = io();
@@ -16,7 +10,7 @@
 
     </head>
     <body>
-        <canvas id="canvas"></canvas>
+       <audio src="sounds/doberman.mp3" id="doberman"></audio>
     </body>
 </html>
 <script src="js/multiplayer_game.js"></script>

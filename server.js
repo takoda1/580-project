@@ -28,12 +28,11 @@ app.get('/multiplayer', (req, res) => {
 app.get('/clapit', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'))
 })
-
 //Takoda server side game code
 
 let io = socketIO(server);
 let players = {};
-let playerCount = 0;
+players.playerCount = 0;
 
 io.on('connection', (socket) => {
     console.log("Someone connected");
@@ -43,14 +42,20 @@ io.on('connection', (socket) => {
             x: 0,
             y: 0
         }
-        playerCount++;
-        console.log(players.length);
+        players.playerCount++;
+        console.log(players.playerCount)
+        console.log(players);
+
+        //setup game if certain number of players reached
+
+        //I'm thinking I just have a few static mazes that randomly gets picked
+
     })
 
 
     socket.on('disconnect', () => {
         console.log("Someone disconnected")
-        playerCount--;
+        players.playerCount--;
     })
     socket.on('chat message', (msg) => {
         console.log('message:' + msg);
