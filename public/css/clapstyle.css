@@ -1,0 +1,207 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body, button {
+	font-family: "Averia Sans Libre";
+	font-size: 8px;
+}
+body {
+	background-color: rgb(27, 205, 250);
+	height: 100vh;
+}
+.task, .clapit > * {
+	position: absolute;
+}
+.cta, .clapit {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.cta {
+	animation: updown 0.5s linear infinite alternate;
+	border-top: 2em solid red;
+	border-right: 1em solid transparent;
+	border-left: 1em solid transparent;
+	opacity: 0.7;
+	width: 0;
+	height: 0;
+	transform: translate(-1em,-2em);
+	z-index: 1;
+}
+.clapit {
+	background:
+
+		/* Bop It button base */
+		/*radial-gradient(15em 15em at 25.5em 7.5em,rgb(0,170,204) 44.5%,rgb(17,17,17) 45%,rgb(17,17,17) 49.5%,rgba(17,17,17,0) 50%),*/
+		/* body */
+		linear-gradient(rgb(55, 32, 184),rgb(0,0,0)) 12em 4em / 40em 7em,
+    linear-gradient(rgb(39, 23, 131),rgb(0,0,0)) 21.5em 1em / 8em 38em,
+		/* input necks */
+		linear-gradient(rgb(255,204,0),rgb(255,204,0)) 11em 6em / 1em 3em,
+		linear-gradient(rgb(0,170,204),rgb(0,170,204)) calc(100% - 6em) 5em / 2em 2em;
+	background-color: inherit;
+	background-repeat: no-repeat;
+	width: 60em;
+	height: 15em;
+	z-index: 0;
+}
+.clapit > * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.leftit-text, .rightit-text, .upit-text, .downit-text {
+	color: rgb(255,255,0);
+	text-shadow: -0.05em 0.2em 0 rgb(136,85,170);
+}
+.leftit-text {
+	top: 6em;
+	left: 12.5em;
+	transform: scaleX(0.8);
+	transform-origin: 0 50%;
+}
+
+.upit-text{
+  top: 1.5em;
+  left: 23.2em;
+  transform: scaleX(2);
+	transform-origin: 0 60%;
+}
+
+.downit-text{
+  top: 13em;
+  left: 22em;
+  transform: scaleX(1.8);
+	transform-origin: 0 60%;
+}
+
+.leftit-text span, .clap-it span, .rightit-text span, .downit-text span, .upit-text span {
+	display: inline-block;
+}
+.leftit-text span, .rightit-text span {
+	font-size: 2em;
+}
+
+.rightit-text {
+	top: 5em;
+	right: 9em;
+}
+
+.leftit-cont {
+	background:
+		linear-gradient(90deg, rgba(68, 60, 30, 0) 10%, rgb(255, 153, 0) 10%),
+		radial-gradient(2em 7em at 1em 50%, rgb(255,204,0) 78%, rgba(255,204,0,0) 30%);
+	background-color: inherit;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	top: 3em;
+	left: 0;
+	width: 11em;
+	height: 9em;
+	z-index: 0;
+}
+.leftit-cont:before, .leftit-cont:after {
+	background-color: inherit;
+	content: "";
+	display: block;
+	position: absolute;
+	width: 103%;
+	height: 100%;
+	z-index: 1;
+}
+.leftit-cont:before {
+	bottom: 100%;
+	transform: rotate(12deg);
+	transform-origin: 0 100%;
+}
+.leftit-cont:after {
+	top: 100%;
+	transform: rotate(-12deg);
+	transform-origin: 0 0;
+}
+
+.clap-it {
+	background-color: rgb(68,17,200);
+	border: 0;
+	border-radius: 80%;
+	color: rgb(200,60,200);
+	font-weight: bold;
+	width: 8em;
+	height: 8em;
+	top: 3.5em;
+	left: 21.5em;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.clap-it:focus {
+	outline: 0;
+}
+.clap-it:active {
+	box-shadow: 0 0.3em 0 0.3em rgb(34,0,68) inset;
+}
+.clap-it:active .clapit-text{
+	transform: translateY(3px);
+}
+.clap-it span {
+	font-size: 2em;
+}
+
+.right-it {
+	background:
+		radial-gradient(6em 6em at 5em 50%,rgb(38, 0, 252) 24%,rgb(0,136,170) 25%,rgb(0,136,170) 29%,rgb(38, 0, 252) 30%,rgb(38, 0, 252) 49%,rgba(0,170,204,0) 50%),
+		linear-gradient(-20deg,rgb(38, 0, 252) 62%,rgba(0,170,204,0) 64%) 0 0 / 4em 3em,
+		linear-gradient(20deg,rgba(0,170,204,0) 36%,rgb(38, 0, 252) 38%) 0 3em / 4em 3em;
+	background-repeat: no-repeat;
+	top: 3em;
+	right: 0;
+	width: 8em;
+	height: 6em;
+}
+
+.up-it {
+	background:
+		radial-gradient(4em 6em at 3.5em 50%,rgb(245, 52, 203) 24%,rgb(245, 52, 203) 25%,rgb(245, 52, 2) 29%,rgb(245, 52, 203) 30%,rgb(245, 52, 203) 49%,rgba(0,170,204,0) 50%),
+		/*linear-gradient(-20deg,rgb(245, 52, 203) 62%,rgba(0,170,204,0) 64%) 0 0 / 4em 3em,*/
+		linear-gradient(rgba(0,170,204,0) 34%,rgb(245, 52, 203) 38%) 0 5em / 7em 5em;
+	background-repeat: no-repeat;
+	top: -7em;
+	left: 22em;
+	width: 8em;
+	height: 8em;
+}
+
+.down-it {
+	background:
+		/*radial-gradient(4em 6em at 3.5em 50%,rgb(245, 52, 203) 24%,rgb(245, 52, 203) 25%,rgb(245, 52, 2) 29%,rgb(245, 52, 203) 30%,rgb(245, 52, 203) 49%,rgba(0,170,204,0) 50%),*/
+		/*linear-gradient(-20deg,rgb(245, 52, 203) 62%,rgba(0,170,204,0) 64%) 0 0 / 4em 3em,*/
+    linear-gradient(-50deg,rgb(11, 241, 50) 60%,rgba(0,170,204,0) 60%) 0 1em / 4em 5em,
+		linear-gradient(50deg,rgb(11, 241, 50) 60%,rgba(0,170,204,0) 60%) 4em 1em / 4em 5em;
+	background-repeat: no-repeat;
+	top: 14em;
+	left: 22em;
+	width: 8em;
+	height: 8em;
+}
+
+
+
+.task {
+	font-size: 5em;
+	bottom: 5%;
+	line-height: 1.5em;
+	min-height: 1.5em;
+	text-align: center;
+	width: 100%;
+}
+@keyframes updown {
+	from {transform: translate(-4.3em,-2em);}
+	to {transform: translate(-4.3em,-3em);}
+}
