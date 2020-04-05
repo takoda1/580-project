@@ -1,4 +1,4 @@
-
+//This game is highly recycled, and has elements added for accessbility
 let w = window,
     d = document,
     e = d.documentElement,
@@ -206,6 +206,11 @@ window.addEventListener("keydown", (e) => {
     if (e.which === 32) {
         var msg = new SpeechSynthesisUtterance("Get through the maze with the arrow keys.");
         window.speechSynthesis.speak(msg);
+        animate();
+    }
+    console.log(e.keyCode);
+    if (e.keyCode === 17) {
+        location.href = "/chooseGame";
     }
 })
 
@@ -363,7 +368,9 @@ function moveSouth() {
 }
 //Changes the alert when you win the game
 function gameComplete() {
-    var msg = new SpeechSynthesisUtterance("YOU WON! Good job.");
+    var msg = new SpeechSynthesisUtterance("YOU WON! Good job. To play again, press the spacebar. To\
+     return to the game choice page, press the control key in the\
+     bottom left corner");
     window.speechSynthesis.speak(msg);
     alert('Wow! You won! Thats pretty neat!');
 }
