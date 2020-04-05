@@ -4,8 +4,8 @@ let w = window,
     e = d.documentElement,
     g = d.getElementsByTagName('body')[0];
 
-let x = w.innerWidth || e.clientWidth || g.clientWidth,
-    y = w.innerHeight || e.clientHeight || g.clientHeight;
+let x = w.innerWidth - 200|| e.clientWidth || g.clientWidth,
+    y = w.innerHeight - 200 || e.clientHeight || g.clientHeight;
 
 let width = x - 16,
     height = y - 16;
@@ -202,6 +202,13 @@ function drawPlayer(position) {
     game.fill();
 }
 
+window.addEventListener("keydown", (e) => {
+    if (e.which === 32) {
+        var msg = new SpeechSynthesisUtterance("Get through the maze with the arrow keys.");
+        window.speechSynthesis.speak(msg);
+    }
+})
+
 window.addEventListener("keydown", function (e) {
 
     var value = e.which;
@@ -215,13 +222,21 @@ window.addEventListener("keydown", function (e) {
 
 });
 
+function playFootstep() {
+    let audio = new Audio('../sounds/footstep.mp3');
+    audio.play();
+}
 
 function moveWest() {
     var newY = currentPosition.y;
     var newX = currentPosition.x - 1;
     var newPosition;
+    let audio = new Audio('../sounds/crabsnake.mp3');
 
-    if (newX < 0) return false;
+    if (newX < 0) {
+        audio.play();
+        return false;
+    }
 
     for (var i = layout.length - 1; i >= 0; i--) {
         if (layout[i].x === newX && layout[i].y === newY) {
@@ -237,10 +252,9 @@ function moveWest() {
 
     if ((currentPosition.d1 === W) || (newPosition.d1 === E)) {
         drawPlayer(newPosition);
+        playFootstep();
     }
     else {
-        console.log("ABC");
-        let audio = new Audio('../sounds/crabsnake.mp3');
         audio.play();
     }
 }
@@ -249,8 +263,13 @@ function moveEast() {
     var newY = currentPosition.y;
     var newX = currentPosition.x + 1;
     var newPosition;
+    let audio = new Audio('../sounds/waterSplash.mp3');
 
-    if (newX > maxX) return false;
+    if (newX > maxX) {
+        audio.play();
+        return false;
+    }
+
 
     for (var i = layout.length - 1; i >= 0; i--) {
         if (layout[i].x === newX && layout[i].y === newY) {
@@ -264,10 +283,12 @@ function moveEast() {
 
     if ((currentPosition.d1 === E) || (newPosition.d1 === W)) {
         drawPlayer(newPosition);
+        playFootstep();
     }
-    else {
+
+    if (newPosition.x == currentPosition.x + 1 && newPosition.y == currentPosition.y) {
         console.log("ABC");
-        let audio = new Audio('../sounds/waterSplash.mp3');
+        
         audio.play();
     }
 
@@ -278,9 +299,13 @@ function moveNorth() {
     var newY = currentPosition.y - 1;
     var newX = currentPosition.x;
     var newPosition;
+    let audio = new Audio('../sounds/cartoonBonk.mp3');
 
 
-    if (newY < 0) return false;
+    if (newY < 0) {
+        audio.play();
+        return false;
+    }
 
     for (var i = layout.length - 1; i >= 0; i--) {
         if (layout[i].x === newX && layout[i].y === newY) {
@@ -294,21 +319,25 @@ function moveNorth() {
 
     if ((currentPosition.d1 === N) || (newPosition.d1 === S)) {
         drawPlayer(newPosition);
+        playFootstep();
     }
-    else {
+    if (newPosition.x == currentPosition.x && newPosition.y == currentPosition.y - 1) {
         console.log("ABC");
-        let audio = new Audio('../sounds/cartoonBonk.mp3');
+        
         audio.play();
     }
-
 }
 
 function moveSouth() {
     var newY = currentPosition.y + 1;
     var newX = currentPosition.x;
     var newPosition;
+    let audio = new Audio('../sounds/reaperLeviathan.mp3');
 
-    if (newY > maxY) return false;
+    if (newY > maxY) {
+        audio.play();
+        return false;
+    }
 
     for (var i = layout.length - 1; i >= 0; i--) {
         if (layout[i].x === newX && layout[i].y === newY) {
@@ -322,16 +351,20 @@ function moveSouth() {
 
     if ((currentPosition.d1 === S) || (newPosition.d1 === N)) {
         drawPlayer(newPosition);
+        playFootstep();
     }
-     else {
-        console.log("ABC");
-        let audio = new Audio('../sounds/reaperLeviathan.mp3');
+    console.log(currentPosition);
+    console.log(newPosition);
+    if (newPosition.x == currentPosition.x && newPosition.y == currentPosition.y + 1) {
+       
         audio.play();
     }
 
 }
 //Changes the alert when you win the game
 function gameComplete() {
+    var msg = new SpeechSynthesisUtterance("YOU WON! Good job.");
+    window.speechSynthesis.speak(msg);
     alert('Wow! You won! Thats pretty neat!');
 }
 
