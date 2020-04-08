@@ -122,6 +122,12 @@ function app() {
 			setTimeout(next,g.taskDelay);
 		};
 
+		function playMusic() {
+			let audio = new Audio('../sounds/clapit-music.mp3')
+			audio.play();
+		}
+		
+
 		
 		
 
@@ -130,6 +136,7 @@ function app() {
 
       if(e.keyCode == 32){
 
+		playMusic();
         if (g.gameOver || g.task === null) {
 	        document.querySelector(".cta").style.display = "none";
 	        g = new game();
