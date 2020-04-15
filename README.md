@@ -57,4 +57,4 @@ $ node server.js
 
 ## Resources
 
-- README formatting help from <a href="https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46" target="_blank">FVCproductions</a>.
+- Formatting help and inspiration from <a href="https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46" target="_blank">FVCproductions</a>.
