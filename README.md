@@ -50,7 +50,7 @@ $ node server.js
 
 | <a href="https://github.com/carly20" target="_blank">**Carly Richardson**</a> | <a href="http://github.com/takoda1" target="_blank">**Takoda Ren**</a> | <a href="http://github.com/quincygodwin" target="_blank">**Quincy Godwin**</a> |
 | :---: |:---:| :---:|
-| [![FVCproductions](https://avatars1.githubusercontent.com/u/52942423?s=400&u=03a64281c7277aa27688eb93bfc7315690e23038&v=4?s=200)    | [![FVCproductions](https://avatars2.githubusercontent.com/u/31773273?s=400&v=4?s=200) | [![FVCproductions](https://avatars2.githubusercontent.com/u/27874702?s=460&u=cbef7006ff74ff80443b1bb7778f519a6d65eb61&v=4?s=200)](http://fvcproductions.com)  |
+| [![Carly](https://avatars1.githubusercontent.com/u/52942423?s=400&u=03a64281c7277aa27688eb93bfc7315690e23038&v=4?s=200)](http://github.com/carly20)  | [![Takoda](https://avatars2.githubusercontent.com/u/31773273?s=400&v=4?s=200)](http://github.com/takoda1) | [![Quincy](https://avatars2.githubusercontent.com/u/27874702?s=460&u=cbef7006ff74ff80443b1bb7778f519a6d65eb61&v=4?s=200)](http://github.com/quincygodwin)  |
 | <a href="https://github.com/carly20" target="_blank">`github.com/carly20`</a> | <a href="https://github.com/takoda1" target="_blank">`github.com/takoda1`</a> | <a href="https://github.com/quincygodwin" target="_blank">`https://github.com/quincygodwin`</a> |
 
 ---
