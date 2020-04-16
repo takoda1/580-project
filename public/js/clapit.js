@@ -134,13 +134,11 @@ function app() {
 
 		}
 
-		function playIntro() {
-			window.speechSynthesis.speak(new SpeechSynthesisUtterance(
+		window.speechSynthesis.speak(new SpeechSynthesisUtterance(
 
 				"welcome to clap it. play by using the arrow keys. when the game gives you the command to left it, press the left arrow key, et cetera. Start a new game by pressing the space bar. Press control when the game is over to go back to the game selection screen."
 
 			));
-		}
 		
 
 
