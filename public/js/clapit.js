@@ -123,6 +123,10 @@ function app() {
 		};
 
 		
+		function makeSound(){
+		 let audio = new Audio('../sounds/sthswng1.mp3')
+		 audio.play();
+		}
 		
 
 		
@@ -138,7 +142,7 @@ function app() {
 
     document.body.onkeyup = function(e){
 
-     
+     makeSound();
       
       if(e.keyCode == 32){
 
