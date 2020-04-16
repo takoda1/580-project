@@ -135,14 +135,17 @@ function app() {
 		}
 
 		
-		
+		window.speechSynthesis.speak(new SpeechSynthesisUtterance(
+
+				"welcome to clap it. play by using the arrow keys. when the game gives you the command to left it, press the left arrow key, et cetera. Start a new game by pressing the space bar. Press control when the game is over to go back to the game selection screen."
+
+			));
 
 
     document.body.onkeyup = function(e){
 
       if(e.keyCode == 32){
 
-		playIntro();
 		playMusic();
         if (g.gameOver || g.task === null) {
 	        document.querySelector(".cta").style.display = "none";
