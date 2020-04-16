@@ -1,14 +1,17 @@
 //This game is highly recycled, and has elements added for accessbility
+//THIS GAME USES SOUND EFFECTS FROM SUBNAUTICA
 let w = window,
     d = document,
     e = d.documentElement,
     g = d.getElementsByTagName('body')[0];
 
-let x = w.innerWidth - 200|| e.clientWidth || g.clientWidth,
-    y = w.innerHeight - 200 || e.clientHeight || g.clientHeight;
+let x = w.innerWidth - 900|| e.clientWidth || g.clientWidth,
+    y = w.innerHeight - 300 || e.clientHeight || g.clientHeight;
 
 let width = x - 16,
     height = y - 16;
+
+let backgroundAudio = new Audio('../sounds/crashSite.mp3');
 
 
 var currentPosition;
@@ -86,6 +89,9 @@ frontier.push({
 
 // Explore the frontier until the tree spans the graph.
 function run() {
+    backgroundAudio.pause();
+    backgroundAudio.currentTime = 0;
+    backgroundAudio.play();
     var done, k = 0;
     while (++k < 50 && !(done = exploreFrontier()));
     return done;
@@ -372,7 +378,6 @@ function gameComplete() {
      return to the game choice page, press the control key in the\
      bottom left corner");
     window.speechSynthesis.speak(msg);
-    alert('Wow! You won! Thats pretty neat!');
 }
 
 
