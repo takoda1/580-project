@@ -5,7 +5,7 @@ var first = true
 
 function playMusic() {
     let audio = new Audio('../sounds/interstellar.ogg')
-    audio.volume = .5;
+    audio.volume = .2;
     audio.play();
 }
 
