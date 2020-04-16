@@ -27,11 +27,17 @@
         
         function playMusic() {
             let audio = new Audio('../sounds/interstellar.ogg')
-            audio.volume = .5;
+            audio.volume = .2;
             audio.play();
         }
 
         playMusic();
+        
+        window.speechSynthesis.speak(new SpeechSynthesisUtterance(
+
+				"welcome to arcadia. press any button to enter the game selection screen"
+
+			));
 
         $(window).keypress(function(e){
             location.href = '/chooseGame';
