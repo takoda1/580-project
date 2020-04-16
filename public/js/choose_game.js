@@ -10,6 +10,12 @@ function playMusic() {
 }
 
 playMusic();
+
+window.speechSynthesis.speak(new SpeechSynthesisUtterance(
+
+                "this is the game selection screen. press the space bar to continue"
+    
+			));
     
 $(window).keyup(function(e){
     if (first == true){
