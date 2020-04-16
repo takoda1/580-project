@@ -123,8 +123,12 @@ function app() {
 		};
 
 		function playMusic() {
-			let audio = new Audio('../sounds/clapit-music.mp3')
+			var audio = new Audio('../sounds/clapit-music.mp3')
 			audio.play();
+		}
+	
+		function stopMusic() {
+			audio.pause();
 		}
 		
 
@@ -144,6 +148,7 @@ function app() {
 
     document.body.onkeyup = function(e){
 
+	    	playSound();
       if(e.keyCode == 32){
 
 		playMusic();
@@ -172,10 +177,11 @@ function app() {
 
               if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[2],g.task)) {
-								playSound();
+								//playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
+							  stopMusic();
 						    }
 					    }
               break;
@@ -184,10 +190,11 @@ function app() {
 
              if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[1],g.task)) {
-								playSound();
+								//playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
+							    stopMusic();
 						    }
 					    }
               break;
@@ -196,10 +203,11 @@ function app() {
 
              if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[3],g.task)) {
-								playSound();
+								//playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
+							    stopMusic();
 						    }
 					    }
               break;
@@ -208,10 +216,11 @@ function app() {
 
               if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[4],g.task)) {
-								playSound();
+								//playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
+							    stopMusic();
 						    }
 					    }
               break;
