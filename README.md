@@ -26,7 +26,7 @@ We wanted our game to be accessible from anywhere. Therefore, we are hosting it 
 > Clap It is a sound-based reaction time game. Players will be given commands as a beat plays and must react to those commands in time. The beats per minute of the beat will steadily increase as the player successfully fulfills commands, until the player messes up a command. This is an arcade style game where there is no end, only high scores. (based off bop-it)
 
 `King of the Maze`
-> Add description
+> King of the maze is a sound based maze game. Players will be repelled by monsters and obstacles sound cues as they navigate through the maze.
 
 ---
 ## Setup
