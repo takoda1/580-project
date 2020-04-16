@@ -128,7 +128,19 @@ function app() {
 		}
 		
 
-		
+		function playSound() {
+			let audio1 = new Audio('../sounds/sthswing.mp3')
+			audio1.play();
+
+		}
+
+		function playIntro() {
+			window.speechSynthesis.speak(new SpeechSynthesisUtterance(
+
+				"welcome to clap it. play by using the arrow keys. when the game gives you the command to left it, press the left arrow key, et cetera. Start a new game by pressing the space bar. Press control when the game is over to go back to the game selection screen."
+
+			));
+		}
 		
 
 
@@ -136,6 +148,7 @@ function app() {
 
       if(e.keyCode == 32){
 
+		playIntro();
 		playMusic();
         if (g.gameOver || g.task === null) {
 	        document.querySelector(".cta").style.display = "none";
@@ -149,7 +162,11 @@ function app() {
 
 				
 
-	  }
+	  } else if (e.keyCode == 17) {  //exit button
+			//Read out: "Are you sure you want to quit the game? Press again to exit."
+			window.speechSynthesis.cancel();
+        	location.href = '/chooseGame';
+    	}
 	  
 	  switch (e.keyCode)
           {
@@ -158,6 +175,7 @@ function app() {
 
               if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[2],g.task)) {
+								playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
@@ -169,6 +187,7 @@ function app() {
 
              if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[1],g.task)) {
+								playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
@@ -180,6 +199,7 @@ function app() {
 
              if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[3],g.task)) {
+								playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
@@ -191,6 +211,7 @@ function app() {
 
               if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[4],g.task)) {
+								playSound();
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
