@@ -122,21 +122,17 @@ function app() {
 			setTimeout(next,g.taskDelay);
 		};
 
-		function playMusic() {
-			var audio = new Audio('../sounds/clapit-music.mp3')
-			audio.play();
-		}
+		//function playMusic() {
+		//	var audio = new Audio('../sounds/clapit-music.mp3')
+		//	audio.play();
+		//}
 	
-		function stopMusic() {
-			audio.pause();
-		}
+		//function stopMusic() {
+		//	audio.pause();
+		//}
 		
 
-		function playSound() {
-			let audio1 = new Audio('../sounds/sthswing1.mp3')
-			audio1.play();
-
-		}
+		
 
 		
 		window.speechSynthesis.speak(new SpeechSynthesisUtterance(
@@ -148,10 +144,13 @@ function app() {
 
     document.body.onkeyup = function(e){
 
-	    	playSound();
+      let audio = new Audio('../sounds/clapit-music.mp3')
+      
       if(e.keyCode == 32){
 
-		playMusic();
+		
+      		audio.play();
+	      
         if (g.gameOver || g.task === null) {
 	        document.querySelector(".cta").style.display = "none";
 	        g = new game();
@@ -181,7 +180,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							  stopMusic();
+							  audio.pause();
 						    }
 					    }
               break;
@@ -194,7 +193,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							    stopMusic();
+							    audio.pause();
 						    }
 					    }
               break;
@@ -207,7 +206,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							    stopMusic();
+							    audio.pause();
 						    }
 					    }
               break;
@@ -220,7 +219,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							    stopMusic();
+							    audio.pause();
 						    }
 					    }
               break;
