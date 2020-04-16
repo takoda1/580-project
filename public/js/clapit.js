@@ -129,7 +129,7 @@ function app() {
 		
 
 		function playSound() {
-			let audio1 = new Audio('../sounds/sthswing.mp3')
+			let audio1 = new Audio('../sounds/sthswing1.mp3')
 			audio1.play();
 
 		}
