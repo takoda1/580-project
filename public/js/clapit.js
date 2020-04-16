@@ -125,6 +125,7 @@ function app() {
 		
 		function makeSound(){
 		 let audio = new Audio('../sounds/sthswng1.mp3')
+		 audio.volume = .3;
 		 audio.play();
 		}
 		
