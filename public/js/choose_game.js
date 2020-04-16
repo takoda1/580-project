@@ -3,6 +3,13 @@ var index = 0;
 var selected = false;
 var first = true
 
+function playMusic() {
+    let audio = new Audio('../sounds/clapit-music.mp3')
+    audio.play();
+}
+
+playMusic();
+    
 $(window).keyup(function(e){
     if (first == true){
         var msg = new SpeechSynthesisUtterance("Use the left and right arrow keys to navigate between games");
