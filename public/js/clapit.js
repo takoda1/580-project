@@ -122,14 +122,7 @@ function app() {
 			setTimeout(next,g.taskDelay);
 		};
 
-		//function playMusic() {
-		//	var audio = new Audio('../sounds/clapit-music.mp3')
-		//	audio.play();
-		//}
-	
-		//function stopMusic() {
-		//	audio.pause();
-		//}
+		
 		
 
 		
@@ -140,16 +133,17 @@ function app() {
 				"welcome to clap it. play by using the arrow keys. when the game gives you the command to left it, press the left arrow key, et cetera. Start a new game by pressing the space bar. Press control when the game is over to go back to the game selection screen."
 
 			));
-
+		 let audio = new Audio('../sounds/clapit-music.mp3')
+		 audio.play();
 
     document.body.onkeyup = function(e){
 
-      let audio = new Audio('../sounds/clapit-music.mp3')
+     
       
       if(e.keyCode == 32){
 
 		
-      		audio.play();
+      		
 	      
         if (g.gameOver || g.task === null) {
 	        document.querySelector(".cta").style.display = "none";
@@ -180,7 +174,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							  audio.pause();
+							 
 						    }
 					    }
               break;
@@ -193,7 +187,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							    audio.pause();
+							   
 						    }
 					    }
               break;
@@ -206,7 +200,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							    audio.pause();
+							    
 						    }
 					    }
               break;
@@ -219,7 +213,7 @@ function app() {
 							    beforeNext();
 						    } else {
 							  //clearTimeout(missTimer);
-							    audio.pause();
+							    
 						    }
 					    }
               break;
