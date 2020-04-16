@@ -4,7 +4,7 @@ var selected = false;
 var first = true
 
 function playMusic() {
-    let audio = new Audio('../sounds/clapit-music.mp3')
+    let audio = new Audio('../sounds/interstellar.ogg')
     audio.play();
 }
 
