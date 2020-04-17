@@ -1,7 +1,6 @@
 let games = ['Clap It', 'The Forbidden Forest', "King of the Maze"]
-var index = 0;
+var index = -1;
 var selected = false;
-var first = true
 
 function playMusic() {
     let audio = new Audio('../sounds/interstellar.ogg')
@@ -13,37 +12,31 @@ playMusic();
 
 window.speechSynthesis.speak(new SpeechSynthesisUtterance(
 
-                "this is the game selection screen. press the space bar to continue"
+                "this is the game selection screen. Use the left and right arrow keys to navigate between games"
     
 			));
     
 $(window).keyup(function(e){
-    if (first == true){
-        var msg = new SpeechSynthesisUtterance("Use the left and right arrow keys to navigate between games");
-        window.speechSynthesis.speak(msg);
-        first = false;
+    window.speechSynthesis.cancel();
+    if (selected == true && e.keyCode== 32){
+        if (index%3==0){
+            // jump to clap it
+            location.href = '/clapit';
+        }else if (index%3==1) {
+            //jump to Forbidden Forest
+            location.href = '/forbiddenForest';
+        }else {
+            //jump to takoda's game
+            location.href = "/multiplayer";
+        }
     } else {
-        window.speechSynthesis.cancel();
-        if (selected == true && e.keyCode== 32){
-            if (index%3==0){
-                // jump to clap it
-                location.href = '/clapit';
-            }else if (index%3==1) {
-                //jump to Forbidden Forest
-                location.href = '/forbiddenForest';
-            }else {
-                //jump to takoda's game
-                location.href = "/multiplayer";
-            }
-        } else {
-            if (e.keyCode == 39) { 
-                index = index+1;
-            } else if (e.keyCode == 37) {
-                if (index > 0) {
-                    index = index-1;
-                } else {
-                    index = games.length-1;
-                }
+        if (e.keyCode == 39) { 
+            index = index+1;
+        } else if (e.keyCode == 37) {
+            if (index > 0) {
+                index = index-1;
+            } else {
+                index = games.length-1;
             }
         }
     }

@@ -7,7 +7,6 @@ var left_arrow = false;
 var right_arrow = false;
 var index = 0;
 var correct_answers = 0;
-var instructions = false;
 var result = [0, [0,0,0,0]];
 var msg = new SpeechSynthesisUtterance("Hello, and welcome to the \
     Forbidden Forrest. You may skip the instructions at anytime by pressing the space bar. You are stuck in an enchanted \
@@ -27,6 +26,14 @@ var msg = new SpeechSynthesisUtterance("Hello, and welcome to the \
     bar to begin.");
 game_over = false;
 
+
+function playMusic() {
+    let audio = new Audio('../sounds/CreepyForest.mp3')
+    audio.volume = .2;
+    audio.play();
+}
+playMusic();
+BeginInstructions();
 
 function getEquation() {
     var number = Math.floor((Math.random() * 4) + 1);
@@ -98,9 +105,9 @@ function shuffle(array) {
   }
 
   function BeginInstructions() {
+    window.speechSynthesis.cancel();
     msg.pitch = 0;
     window.speechSynthesis.speak(msg);
-    instructions = true;
 
 }
 
@@ -143,6 +150,7 @@ function message(a) {
         window.speechSynthesis.speak(msg);
         document.getElementById("instructions").innerHTML = "Correct Answer <br> You are one step closer to getting out of the forrest <br> Answer " + (10-correct_answers).toString() + " more questions correctly to leave the forrest";
     }else {
+        document.getElementById('monster').play();
         distance = distance -2;
         var msg = new SpeechSynthesisUtterance("Inncorrect. The correct answer is " + result[0] + " The monster is now " + distance + " feet away");
         msg.pitch = 0;
@@ -153,6 +161,7 @@ function message(a) {
 
 
 function end_game() {
+    document.getElementById('roar').play();
     document.getElementById("instructions").innerHTML = "Game Over. You did not\
     escape the forest.";
     game_over = true;
@@ -165,7 +174,7 @@ function end_game() {
 }
 
 function win_game() {
-    document.getElementById("instructions").innerHTML = "Congratulations. You escpaed\
+    document.getElementById("instructions").innerHTML = "Congratulations. You escaped\
     the forest safely";
     game_over = true;
     var msg = new SpeechSynthesisUtterance("Congratulations. You escaped\
@@ -186,9 +195,7 @@ function restart_questions() {
 
 
 $(window).keypress(function(e){
-    if(instructions == false) {
-        BeginInstructions();
-    } else if (game_over == true){
+    if (game_over == true){
         location.href = '/forbiddenForest';
     }
     else if (e.keyCode == 32 && game_over==false) { //spacebar
