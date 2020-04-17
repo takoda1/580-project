@@ -14,6 +14,8 @@
 ---
 ## Overview
 
+The game is available online at [http://comp580.herokuapp.com/](http://comp580.herokuapp.com/) . This is the easiest way to access the game, especially for those without a background in computer science. 
+
 The game runs in a browser and is designed to mimic the capability of online arcade to play various games in one place. Arcadia contains three games, `The Forbidden Forest`, `Clap It`, and `King of the Maze`. Our idea for this game stemmed from the need for more inclusive technology for people with disabilities. As we learned during various lectures this semester, many of the current games for people with disabilities are extremely outdated, too simple, do not contain proper accessibility features, or simply do not exist at all. 
 We wanted our game to be accessible from anywhere. Therefore, we are hosting it on Heroku. The way the users play the game is by providing intuitive sound-based cues and instructions.
 
@@ -30,8 +32,6 @@ We wanted our game to be accessible from anywhere. Therefore, we are hosting it 
 
 ---
 ## Setup
-
-The game is available online at [http://comp580.herokuapp.com/](http://comp580.herokuapp.com/) . This is the easiest way to access the game, especially for those without a background in computer science. 
 
 For more advanced users who may want to play the game locally, the entire `580-project` folder may be downloaded or cloned. Once `Git Bash` has been properly installed on your computer, you may open a `Git Bash` window in the `580-project` folder and type `node server.js`. The game can then be played by going to a browser of your choice and going to the domain `localhost:8080`. 
 
