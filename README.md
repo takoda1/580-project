@@ -1,7 +1,7 @@
 # COMP 580 Project: ARCADIA
 
-> Three fun and accessible arcade games designed to be playable by people with visual impairments. 
-Link to Github Pages: [https://takoda1.github.io/580-project/](https://takoda1.github.io/580-project/)
+> Three fun and accessible arcade games designed to be playable by people with visual impairments.
+> Link to Github Pages: [https://takoda1.github.io/580-project/](https://takoda1.github.io/580-project/)
 
 ---
 ## Table of Contents
