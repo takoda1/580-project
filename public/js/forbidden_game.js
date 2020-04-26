@@ -108,7 +108,6 @@ function shuffle(array) {
     window.speechSynthesis.cancel();
     msg.pitch = 0;
     window.speechSynthesis.speak(msg);
-
 }
 
 function playGame() {

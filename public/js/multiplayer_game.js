@@ -210,8 +210,8 @@ function drawPlayer(position) {
 
 window.addEventListener("keydown", (e) => {
     if (e.which === 32) {
-        var msg = new SpeechSynthesisUtterance("Get through the maze with the arrow keys.");
-        window.speechSynthesis.speak(msg);
+        //var msg = new SpeechSynthesisUtterance("Get through the maze with the arrow keys.");
+        //window.speechSynthesis.speak(msg);
         animate();
     }
     console.log(e.keyCode);
@@ -407,7 +407,7 @@ function gameComplete() {
 }());
 
 function animate() {
-
+    console.log("ABC");
     requestAnimationFrame(function () {
         if (!run()) {
             animate();
@@ -416,6 +416,8 @@ function animate() {
 }
 
 animate();
+var msg = new SpeechSynthesisUtterance("Get through the maze with the arrow keys. Press space to restart.");
+window.speechSynthesis.speak(msg);
 
 
 //socket.on('message', function (data) {
