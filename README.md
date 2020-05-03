@@ -54,7 +54,7 @@ By committing to the master branch at [https://github.com/takoda1/580-project](h
 ---
 ## Problems Encountered and Future Plans
 
-When trying to make a multiplayer game, we ran into difficulties implementing the functionality and deciding how to incorporate sound, so we had to modify out projects slightly. Additionally, the transition from static to express was a little rocky, but nothing we could not solve. The project is setup such that other arcade games can be added modularly. A future goal is to continue adding games.
+When trying to make a multiplayer game, we ran into difficulties implementing the functionality and deciding how to incorporate sound, so we had to modify our projects slightly. Additionally, the transition from static to express was a little rocky, but nothing we could not solve. The project is setup such that other arcade games can be added modularly. A future goal is to continue adding games.
 
 ---
 ## Setup
