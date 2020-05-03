@@ -39,12 +39,12 @@ We wanted our game to be accessible from anywhere. Therefore, we are hosting it 
 ---
 ## Intended Audience
 
-The primary audience is blind people, targeted toward the 6-15 age range. The games are also playable by people who can see.
+The primary audience is for people who are blind or visually impared. It is targeted toward children and young adolescents, but can be enjoyed by people of all ages. `Clap-It` and `King of the Maze` are our most 'age-friendly' games, as they can both be played by young children or adults. `The Forbidden Forest` requires knowledge of basic math operations including addition subtraction, multiplication, and division. The games are also playable by people who can see.
 
 ---
 ## Frameworks and Libraries
 
-Frameworks: A `nodejs` app using express as the server/routing framework. Using typical javascript to provide interactivity. We are also using `heroku` to build/deploy our app to `comp580.herokuapp.com`. The most useful libraries are `SpeechSynthesisUtterance`, `PATH`, `dotenv`, and other utility `nodejs` modules.
+Frameworks: A `nodejs` app using express as the server/routing framework. Using typical javascript to provide interactivity. We are also using `heroku` to build/deploy our app to `comp580.herokuapp.com`. The most useful libraries are `SpeechSynthesisUtterance`, `PATH`, `dotenv`, and other utility `nodejs` modules.  `SpeechSynthesisUtterance` allows us to acheive the text-to-speech used in our project.
 
 ---
 ## Building and Deploying
@@ -54,7 +54,7 @@ By committing to the master branch at [https://github.com/takoda1/580-project](h
 ---
 ## Problems Encountered and Future Plans
 
-When trying to make a multiplayer game, we ran into difficulties just implementing the functionality and deciding how to incorporate sound, so we had to scrap that. The transition from static to express was a little rocky but nothing we couldn’t solve. The project is setup such that other arcade games can be added modularly, so that is a future goal.
+When trying to make a multiplayer game, we ran into difficulties implementing the functionality and deciding how to incorporate sound, so we had to modify out projects slightly. Additionally, the transition from static to express was a little rocky, but nothing we could not solve. The project is setup such that other arcade games can be added modularly. A future goal is to continue adding games.
 
 ---
 ## Setup
