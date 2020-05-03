@@ -41,3 +41,22 @@ iframe{
      width: 50%;
     border: 3px solid #8AC007;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    width: 200px;
+    height: 80px;
+  }
+  
+  li {
+    font-size: 18px;
+    padding: 0px;
+    position: absolute;
+  }
+  
+  li:nth-child(1) { top: 50%;  left: 0;   transform: translateY(-40%) translateX(-25%); }
+  li:nth-child(2) { top: 0;    left: 50%; transform: translateX(-50%) translateY(20%); }
+  li:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%) translateY(-10%); }
+  li:nth-child(4) { top: 50%;  right: 0;  transform: translateY(-40%) translateX(25%); }
