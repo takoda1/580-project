@@ -7,6 +7,10 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Intended Audience](#intended-audience)
+- [Frameworks and Libraries](#frameworks-and-libraries)
+- [Building and Deploying](#building-and-deploying)
+- [Problems Encountered and Future Plans](#problems-encountered-and-future-plans)
 - [Setup](#setup)
 - [Clone](#clone)
 - [Team](#team)
@@ -30,6 +34,27 @@ We wanted our game to be accessible from anywhere. Therefore, we are hosting it 
 
 `King of the Maze`
 > King of the maze is a sound based maze game. Players will be repelled by monsters and obstacles sound cues as they navigate through the maze.
+
+
+---
+## Intended Audience
+
+The primary audience is blind people, targeted toward the 6-15 age range. The games are also playable by people who can see.
+
+---
+## Frameworks and Libraries
+
+Frameworks: A `nodejs` app using express as the server/routing framework. Using typical javascript to provide interactivity. We are also using `heroku` to build/deploy our app to `comp580.herokuapp.com`. The most useful libraries are `SpeechSynthesisUtterance`, `PATH`, `dotenv`, and other utility `nodejs` modules.
+
+---
+## Building and Deploying
+
+By committing to the master branch at [https://github.com/takoda1/580-project](https://github.com/takoda1/580-project), the project automatically builds and deploys using heroku.
+
+---
+## Problems Encountered and Future Plans
+
+When trying to make a multiplayer game, we ran into difficulties just implementing the functionality and deciding how to incorporate sound, so we had to scrap that. The transition from static to express was a little rocky but nothing we couldn’t solve. The project is setup such that other arcade games can be added modularly, so that is a future goal.
 
 ---
 ## Setup
