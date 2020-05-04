@@ -250,6 +250,7 @@ function reset_answers() {
     document.getElementById("answer_right").style.textDecoration = "none";
 }
 
+//sounds effects from zapsplat.com
 $(window).keyup(function(e){
     if (e.keyCode == 17) { 
         window.speechSynthesis.cancel();
