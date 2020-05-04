@@ -30,7 +30,7 @@ We wanted our game to be accessible from anywhere. Therefore, we are hosting it 
 > The Forbidden Forest is a sound-based math game. Players will be stuck in an enchanted, forbidden forest with a monster chasing after them. They will have to 'dodge' obstacles in the forest by correctly answering basic math questions (addition, subtraction, multiplication, and division). The answers to the questions will be given in multiple choice style, with each answer corresponding to an arrow key, helping them dodge the monster. Each time they answer a question incorrectly, the monster will get closer, indicated by a louder monster sound in the background. With every correct answer, the player will get closer to successfully exiting the forest and winning the game. Sound effect credits from [Zapsplat](zapsplat.com).
 
 `Clap It`
-> Clap It is a sound-based reaction time game. Players will be given commands as a beat plays and must react to those commands in time. The beats per minute of the beat will steadily increase as the player successfully fulfills commands, until the player messes up a command. This is an arcade style game where there is no end, only high scores. (based off bop-it)
+> Clap It is a sound-based reaction time game. Players will be given commands as a beat plays and must react to those commands in time. The beats per minute of the beat will steadily increase as the player successfully fulfills commands, until the player messes up a command. This is an arcade style game where there is no end, only high scores. Sound effect credits from [Zapsplat](zapsplat.com). (based off bop-it)
 
 `King of the Maze`
 > King of the maze is a sound based maze game. Players will be repelled by monsters and obstacles sound cues as they navigate through the maze.
