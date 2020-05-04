@@ -122,11 +122,22 @@ function app() {
 			setTimeout(next,g.taskDelay);
 		};
 
-		
-		function makeSound(){
-		 let audio = new Audio('../sounds/sthswng1.mp3')
-		 audio.volume = .3;
-		 audio.play();
+		//sounds effects from zapsplat.com
+		function makeSound(sound){
+			if(sound == 1){
+				document.getElementById('blip').play();
+			}else if(sound ==2) {
+				document.getElementById('boing').play();
+			}else if(sound==3){
+				document.getElementById('bubble').play();
+			}else if(sound==4){
+				document.getElementById('swipe').play();
+
+			}else{
+				let audio = new Audio('../sounds/sthswng1.mp3');
+				audio.volume = .3;
+				audio.play();
+			}
 		}
 		
 
@@ -135,15 +146,15 @@ function app() {
 		
 		window.speechSynthesis.speak(new SpeechSynthesisUtterance(
 
-				"welcome to clap it. play by using the arrow keys. when the game gives you the command to left it, press the left arrow key, and so on. Start a new game by pressing the space bar. Press control when the game is over to go back to the game selection screen."
+				"welcome to clap it. Skip the instructions at any time by pressing a key. play by using the arrow keys. when the game gives you the command to left it, press the left arrow key, and so on. Start a new game by pressing the space bar. Press control when the game is over to go back to the game selection screen."
 
 			));
 		 let audio = new Audio('../sounds/clapit-music.mp3')
 		 audio.play();
 
     document.body.onkeyup = function(e){
-
-     makeSound();
+		window.speechSynthesis.cancel();
+     
       
       if(e.keyCode == 32){
 
@@ -171,8 +182,9 @@ function app() {
 	  switch (e.keyCode)
           {
 
-            case 37: //Left
-
+			case 37: //Left
+			makeSound(1);
+			
               if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[2],g.task)) {
 								//playSound();
@@ -185,7 +197,7 @@ function app() {
               break;
 
             case 38: //Up
-
+			makeSound(2);
              if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[1],g.task)) {
 								//playSound();
@@ -198,7 +210,7 @@ function app() {
               break;
 
             case 39: //Right
-
+				makeSound(3);
              if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[3],g.task)) {
 								//playSound();
@@ -211,7 +223,7 @@ function app() {
               break;
 
             case 40: //Down
-
+				makeSound(4);
               if (!g.gameOver && g.task !== null) {
 						    if (g.check(g.actions[4],g.task)) {
 								//playSound();
